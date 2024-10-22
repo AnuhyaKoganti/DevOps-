@@ -7,6 +7,7 @@ on:
         - '**'
 jobs:
     dev_job:
+        needs: all_env_job
         runs-on: ubuntu-latest
         if: github.ref == 'refs/heads/Dev-branch'
         steps:
@@ -15,6 +16,7 @@ jobs:
         - name: print husband name
           run: echo "venu Babu"
     staging_job:
+        needs: all_env_job
         runs-on: ubuntu-latest
         if: github.ref == 'refs/heads/STAGING'
         steps:
