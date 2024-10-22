@@ -5,11 +5,9 @@ jobs:
   job_1:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout Repo
-      run: actions/checkout@v4
-      
+    
     - name: Print date 1
-      run: date 
+      run: date > date.txt
 
     - name: save the output
       uses: actions/upload_artifact@v3
