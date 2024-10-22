@@ -10,7 +10,7 @@ jobs:
       run: date > date.txt
 
     - name: save the output
-      uses: actions/upload_artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: datefile
         path: date.txt
@@ -27,7 +27,7 @@ jobs:
     needs: job_2
     steps:
     - name: download the output
-      uses: actions/download_artifact@v3
+      uses: actions/download-artifact@v3
       with:
         name: datefile
 
