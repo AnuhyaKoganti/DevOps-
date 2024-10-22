@@ -1,4 +1,4 @@
-name: multiple jobs on multiple branches
+name: multiple jobs on multiple -branches
 
 on:
  push:
