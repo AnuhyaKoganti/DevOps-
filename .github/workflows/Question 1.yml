@@ -22,7 +22,7 @@ jobs:
     needs: job_1
     steps:
       - name: sleep
-        run: sleep 10
+        run: sleep 5
 
   job_3:
     runs-on: ubuntu-latest
