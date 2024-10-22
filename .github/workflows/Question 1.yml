@@ -2,16 +2,34 @@ name: workflow-beginner-Q1
 on: push
 
 jobs:
-  echo_job_1:
+  job_1:
     runs-on: ubuntu-latest
     steps:
     - name: Print date 1
       run: date 
 
-  echo_job_2:
+    - name: save the output
+      uses: actions/upload_artifact@v3
+      with:
+        name: datefile
+        path: date.txt
+
+  job_2:
     runs-on: ubuntu-latest
-    needs: echo_job_1
+    needs: job_1
     steps:
-    - name: print name
-      run: echo "Venu is stupid"
+      - name: sleep
+        run: sleep 60
+
+  job_3:
+    runs-on: ubuntu-latest
+    needs: job_2
+    steps:
+    - name: download the output
+      uses: actions/download_artifact@v3
+      with:
+        name: datefile
+
+    - name: print previous output
+      run: cat date.txt
 
