@@ -7,8 +7,9 @@ jobs:
     steps:
     
     - name: Print date 1
-      run: date > date.txt
-      run: cat date.txt
+      run: |
+        date > date.txt
+        cat date.txt
 
     - name: save the output
       uses: actions/upload-artifact@v3
