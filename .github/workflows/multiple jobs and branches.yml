@@ -1,0 +1,31 @@
+name: multiple jobs on multiple branches-dev
+on:
+ push:
+    branches:
+        - '**'
+    paths:
+        - '**'
+jobs:
+    dev_job:
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/Dev-branch'
+        steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+        - name: print husband name
+          run: echo "venu Babu"
+    staging_job:
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/STAGING'
+        steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+        - name: print husband character
+          run: echo "Venu Babu is a Donkey"
+    all_env_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout repo
+          uses: actions/checkout@v4
+        - name: print about Anuhya
+          run: echo "Anuhya Koganti is a very very good and innocent"
